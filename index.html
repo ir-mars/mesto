@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Mesto Russia</title>
+</head>
+<body class="page">
+  <header class="header">
+    <img class="header__logo" src="./images/header-logo.svg" alt="надпись Место">
+  </header>
+  <main class="content">
+    <section class="profile" aria-label="Раздел Профайл">
+      <div class="profile__container">
+        <img class="profile__image" src="./images/Avatar-image.png" alt="фото профиля">    
+        <div class="profile__info">
+          <div class="profile__box">
+            <h1 class="profile__title">Жак-Ив Кусто</h1>
+            <button class="profile__edit-button"></button>
+          </div>
+          <p class="profile__subtitle">Исследователь океана</p>
+        </div>
+      </div>  
+      <button class="profile__add-button"></button>
+    </section>
+    <section class="elements" aria-label="Раздел карточки с описанием мест">
+      <article class="element">
+        <img class="element__image" src="./images/arkhiz.jpg" alt="фото горы Архыз">
+        <div class="element__container">
+          <h2 class="element__title">Архыз</h2>
+          <button class="element__like-button"></button>
+        </div>
+      </article>
+      <article class="element">
+        <img class="element__image" src="./images/dombay.jpg" alt="фото гора Домбай">
+        <div class="element__container">
+          <h2 class="element__title">Гора Домбай</h2>
+          <button class="element__like-button"></button>
+        </div>
+      </article>
+      <article class="element">
+        <img class="element__image" src="./images/elbrus.jpg" alt="фото гора Эльбрус">
+        <div class="element__container">
+          <h2 class="element__title">Гора Эльбрус</h2>
+          <button class="element__like-button"></button>
+        </div>
+      </article>
+      <article class="element">
+        <img class="element__image" src="./images/kirovsk.jpg" alt="фото горы Кировск">
+        <div class="element__container">
+          <h2 class="element__title">Кировск</h2>
+          <button class="element__like-button"></button>
+        </div>
+      </article>
+      <article class="element">
+        <img class="element__image" src="./images/polyana.jpg" alt="фото горы Красная Поляна">
+        <div class="element__container">
+          <h2 class="element__title">Красная Поляна</h2>
+          <button class="element__like-button"></button>
+        </div>
+      </article>
+      <article class="element">
+        <img class="element__image" src="./images/sheregesh.jpg" alt="фото зима Шерегеш">
+        <div class="element__container">
+          <h2 class="element__title">Шерегеш</h2>
+          <button class="element__like-button"></button>
+        </div>
+      </article>
+    </section><!--
+    <section class="popup">
+      
+    </section>-->        
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">© 2020 Mesto Russia</p>
+  </footer>
+  <script src="./scripts/script.js"></script>
+</body>    
+</html>
