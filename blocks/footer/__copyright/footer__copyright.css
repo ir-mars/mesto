@@ -4,3 +4,15 @@
     color: rgba(84, 84, 84, 1);
     margin: 0;
 }
+
+@media screen and (max-width: 908px) {
+    .footer__copyright {
+        padding-left: 19px;
+    }
+}
+
+@media screen and (max-width: 586px) {
+    .footer__copyright {
+        font-size: 14px;
+    }
+}

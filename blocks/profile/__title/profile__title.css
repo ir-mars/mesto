@@ -7,3 +7,10 @@
     white-space: nowrap;
     overflow: hidden;  /*скрытие при длинном имени*/ 
 }
+
+@media screen and (max-width: 586px) {
+    .profile__title {
+        font-size: 27px;
+        line-height: 33px;
+    }
+}
