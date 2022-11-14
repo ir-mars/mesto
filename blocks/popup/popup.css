@@ -1,6 +1,6 @@
 .popup {
     font-family: 'Inter', Arial, sans-serif;
-    display: none;
+    display: /*none;*/flex;
     position: fixed;
     width: 100%;
     height: 100%;
