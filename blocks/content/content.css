@@ -5,6 +5,7 @@
     margin: 0;
     padding: 40px 0 66px;
     gap: 51px;
+    flex: 1;  /*добавили свойство для создвния липкого футера*/
 }
 
 @media screen and (max-width: 586px) {
