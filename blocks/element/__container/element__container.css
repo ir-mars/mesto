@@ -1,8 +1,7 @@
 .element__container {
     display: flex;
-    min-height: 80px;
+    /*min-height: 80px;*/
     justify-content: space-between;
     align-items: center;
-    padding-left: 21px;
-    padding-right: 20px;
+    padding: 25px 20px 26px 21px;
 }
