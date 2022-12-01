@@ -23,7 +23,7 @@
         </div>
       </div>  
       <button class="profile__add-button" type="button"></button>
-    </section>
+    </section><!--
     <section class="elements" aria-label="Раздел карточки с описанием мест">
       <article class="element">
         <img class="element__image" src="./images/arkhiz.jpg" alt="фото горы Архыз">
@@ -67,22 +67,53 @@
           <button class="element__like-button" type="button"></button>
         </div>
       </article>
-    </section>
+    </section>-->
   </main>
   <footer class="footer">
     <p class="footer__copyright">© 2020 Mesto Russia</p>
-  </footer>
-  <div class="popup">  <!--popup_is-opened"-->
+  </footer><!--
+  <div class="popup popup_type_edit-profile">  
     <div class="popup__container">
       <button class="popup__close-btn" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form action="#" class="popup__form" name="popup__form">
-        <input type="text" class="popup__input popup__input_type_name" name="popup__input_type_name" required> <!--placeholder="Введите Ваше имя">-->
-        <input type="text" class="popup__input popup__input_type_description" name="popup__input_type_description" required> <!--placeholder="Напишите о  себе">-->
+      <form action="#" class="popup__form popup__form_type_edit-profile" name="popup-profile">
+        <input type="text" class="popup__input popup__input_type_name" name="popup__input_type_name" placeholder="Ваше имя" required>
+        <input type="text" class="popup__input popup__input_type_description" name="popup__input_type_description" placeholder="О себе" required>
         <button class="popup__submit-btn" type="submit">Сохранить</button>
       </form>
     </div>      
-  </div> 
+  </div>
+  <div class="popup popup_type_add-element">
+    <div class="popup__container">
+      <button class="popup__close-btn" type="button"></button>
+      <h2 class="popup__title">Новое место</h2>
+      <form action="#" class="popup__form popup__form_type_add-element" name="popup-element">
+        <input type="text" class="popup__input popup__input_type_img-name" name="popup__input_type_img-name" placeholder="Название места" required>
+        <input type="url" class="popup__input popup__input_type_img-link" name="popup__input_type_img-link" placeholder="Ссылка на изображение" required>
+        <button class="popup__submit-btn" type="submit">Сохранить</button>
+      </form>
+    </div>   
+  </div>-->
+  <div class="popup popup_type_open-big-img">
+    <div class="popup__img-container">
+      <button class="popup__close-btn" type="button"></button>
+      <figure class="popup__figure-container">
+        <img src="./images/sheregesh.jpg" alt="#" class="popup__big-img">
+        <figcaption class="popup__caption">Шерегеш</figcaption>
+      </figure>
+    </div>
+  </div>
+  <template id="element-template">
+    <article class="element">
+      <img class="element__image" src="#" alt="#">
+      <button class="element__delete-button" type="button"></button>
+      <div class="element__container">
+        <h2 class="element__title"></h2>
+        <button class="element__like-button" type="button"></button>
+      </div>
+    </article>
+  </template>
+  
   <script src="./scripts/script.js"></script>
 </body>    
 </html>

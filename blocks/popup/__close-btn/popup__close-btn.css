@@ -2,7 +2,7 @@
     position: absolute;
     width: 32px;
     height: 32px;
-    top: -40px;  /*вынос кнопки за контейнер*/
+    top: -40px;  /*вынос кнопки за контейнер 32+8=40px*/
     right: -40px;
     background-color: rgba(0, 0, 0, 0);
     background: url(../../../images/close-btn.svg);

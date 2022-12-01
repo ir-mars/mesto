@@ -1,3 +1,5 @@
 .popup_is-opened {
-    display: flex;
+    /*display: flex; */
+    visibility: visible; /*добавляем св-ва для анимации*/
+    opacity: 1;  /*добавляем св-во для анимации*/
 }
