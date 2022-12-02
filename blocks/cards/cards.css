@@ -1,4 +1,4 @@
-.elements {
+.cards {
     font-family: 'Inter', Arial, sans-serif;
     max-width: 880px;
     display: grid;
@@ -8,7 +8,7 @@
 }
 
 @media screen and (max-width: 908px) {
-    .elements {
+    .cards {
         grid-template-columns: repeat(2, 1fr);
         padding-left: 19px;
         padding-right: 19px;
@@ -16,7 +16,7 @@
 }
 
 @media screen and (max-width: 586px) {
-    .elements {
+    .cards {
         grid-template-columns: 1fr;
         max-width: 548px;
         gap: 20px;
