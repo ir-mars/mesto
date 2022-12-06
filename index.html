@@ -24,7 +24,7 @@
       </div>  
       <button class="profile__add-button" type="button"></button>
     </section>
-    <section class="cards" aria-label="Раздел карточки с описанием мест">
+    <section class="cards" aria-label="Раздел карточки с описанием мест"><!--
       <article class="card">
         <img class="card__image" src="./images/arkhiz.jpg" alt="фото горы Архыз">
         <div class="card__container">
@@ -66,7 +66,7 @@
           <h2 class="card__title">Шерегеш</h2>
           <button class="card__like-button" type="button"></button>
         </div>
-      </article>
+      </article>-->
     </section>
   </main>
   <footer class="footer">
@@ -83,29 +83,29 @@
       </form>
     </div>      
   </div>
-  <div class="popup popup_type_add-element">
+  <div class="popup popup_type_add-card">
     <div class="popup__container">
       <button class="popup__close-btn" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
-      <form action="#" class="popup__form popup__form_type_add-element" name="popup-element">
+      <form action="#" class="popup__form popup__form_type_add-card" name="popup-card">
         <input type="text" class="popup__input popup__input_type_img-name" name="popup__input_type_img-name" placeholder="Название места" required>
         <input type="url" class="popup__input popup__input_type_img-link" name="popup__input_type_img-link" placeholder="Ссылка на изображение" required>
         <button class="popup__submit-btn" type="submit">Сохранить</button>
       </form>
     </div>   
   </div>
-  <div class="popup popup_type_open-big-img">
+  <div class="popup popup_type_image">
     <div class="popup__img-container">
       <button class="popup__close-btn" type="button"></button>
       <figure class="popup__figure-container">
-        <img src="./images/sheregesh.jpg" alt="#" class="popup__big-img">
-        <figcaption class="popup__caption">Шерегеш</figcaption>
+        <img src="#" alt="описание картинки" class="popup__big-img">
+        <figcaption class="popup__caption"></figcaption>
       </figure>
     </div>
   </div>
-  <template id="card-template">
+  <template class="card-template">
     <article class="card">
-      <img class="card__image" src="#" alt="#">
+      <img class="card__image" src="#" alt="описание картинки">
       <button class="card__delete-button" type="button"></button>
       <div class="card__container">
         <h2 class="card__title"></h2>
@@ -113,7 +113,6 @@
       </div>
     </article>
   </template>
-  
   <script src="./scripts/script.js"></script>
 </body>    
 </html>
