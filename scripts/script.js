@@ -72,9 +72,8 @@ const closePopupByEsc = (evt) => {
 
 //закрытие попапа оверлей
 const closePopupByOverlay = (evt) => {
-  const popup = document.querySelector('.popup_is-opened');
   if (evt.target === evt.currentTarget) {
-    closePopup(evt.target);
+    closePopup(evt.currentTarget);
   }
 };
 
@@ -87,7 +86,7 @@ const openPopup = function (popup) {
 //закрытие попапа
 const closePopup = function (popup) {
   popup.classList.remove('popup_is-opened');
-  document.removeEventListener('keydown', closePopupByEsc);
+  document.removeEventListener('keydown', closePopupByEsc);  
 };
 
 //попап редактирования профиля
@@ -178,6 +177,9 @@ initialCards.forEach((card) => {
 });
 
 
+popupEditProfile.addEventListener('click', closePopupByOverlay);
+popupAddCard.addEventListener('click', closePopupByOverlay);
+popupImage.addEventListener('click', closePopupByOverlay);
 
 formEditProfile.addEventListener('submit', handleSubmitProfile);
 formAddCard.addEventListener('submit', handleSubmitAddCard);
