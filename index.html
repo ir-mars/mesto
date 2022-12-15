@@ -24,49 +24,7 @@
       </div>  
       <button class="profile__add-button" type="button"></button>
     </section>
-    <section class="cards" aria-label="Раздел карточки с описанием мест"><!--
-      <article class="card">
-        <img class="card__image" src="./images/arkhiz.jpg" alt="фото горы Архыз">
-        <div class="card__container">
-          <h2 class="card__title">Архыз</h2>
-          <button class="card__like-button" type="button"></button>
-        </div>
-      </article>
-      <article class="card">
-        <img class="card__image" src="./images/dombay.jpg" alt="фото гора Домбай">
-        <div class="card__container">
-          <h2 class="card__title">Гора Домбай</h2>
-          <button class="card__like-button" type="button"></button>
-        </div>
-      </article>
-      <article class="card">
-        <img class="card__image" src="./images/elbrus.jpg" alt="фото гора Эльбрус">
-        <div class="card__container">
-          <h2 class="card__title">Гора Эльбрус</h2>
-          <button class="card__like-button" type="button"></button>
-        </div>
-      </article>
-      <article class="card">
-        <img class="card__image" src="./images/kirovsk.jpg" alt="фото горы Кировск">
-        <div class="card__container">
-          <h2 class="card__title">Кировск</h2>
-          <button class="card__like-button" type="button"></button>
-        </div>
-      </article>
-      <article class="card">
-        <img class="card__image" src="./images/polyana.jpg" alt="фото горы Красная Поляна">
-        <div class="card__container">
-          <h2 class="card__title">Красная Поляна</h2>
-          <button class="card__like-button" type="button"></button>
-        </div>
-      </article>
-      <article class="card">
-        <img class="card__image" src="./images/sheregesh.jpg" alt="фото зима Шерегеш">
-        <div class="card__container">
-          <h2 class="card__title">Шерегеш</h2>
-          <button class="card__like-button" type="button"></button>
-        </div>
-      </article>-->
+    <section class="cards" aria-label="Раздел карточки с описанием мест">    
     </section>
   </main>
   <footer class="footer">
@@ -76,9 +34,29 @@
     <div class="popup__container">
       <button class="popup__close-btn" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form action="#" class="popup__form popup__form_type_edit-profile" name="popup-profile">
-        <input type="text" class="popup__input popup__input_type_name" name="popup__input_type_name" placeholder="Ваше имя" required>
-        <input type="text" class="popup__input popup__input_type_description" name="popup__input_type_description" placeholder="О себе" required>
+      <form action="#" class="popup__form popup__form_type_edit-profile" name="popup-profile" novalidate>
+        <input 
+          type="text"
+          id="name"
+          name="popup__input_type_name"
+          class="popup__input popup__input_type_name"
+          placeholder="Ваше имя"
+          required
+          minlength="2"
+          maxlength="40"
+        >
+        <span id="name-error" class="popup__input-error"></span>    
+        <input
+          type="text"
+          id="description"
+          name="popup__input_type_description"
+          class="popup__input popup__input_type_description"
+          placeholder="О себе"
+          required
+          minlength="2"
+          maxlength="200"
+        >
+        <span id="description-error" class="popup__input-error"></span>    
         <button class="popup__submit-btn" type="submit">Сохранить</button>
       </form>
     </div>      
@@ -88,8 +66,26 @@
       <button class="popup__close-btn" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
       <form action="#" class="popup__form popup__form_type_add-card" name="popup-card">
-        <input type="text" class="popup__input popup__input_type_img-name" name="popup__input_type_img-name" placeholder="Название места" required>
-        <input type="url" class="popup__input popup__input_type_img-link" name="popup__input_type_img-link" placeholder="Ссылка на изображение" required>
+        <input
+          type="text"
+          id="img-name"
+          name="popup__input_type_img-name"
+          class="popup__input popup__input_type_img-name"
+          placeholder="Название места"
+          required
+          minlength="2"
+          maxlength="30"
+        >
+        <span id="img-name-error" class="popup__input-error"></span>
+        <input
+          type="url"
+          id="img-link"
+          name="popup__input_type_img-link"
+          class="popup__input popup__input_type_img-link"
+          placeholder="Ссылка на изображение"
+          required
+        >
+        <span id="img-link-error" class="popup__input-error"></span>
         <button class="popup__submit-btn" type="submit">Сохранить</button>
       </form>
     </div>   
@@ -113,6 +109,7 @@
       </div>
     </article>
   </template>
+  <script src="./scripts/validate.js"></script>
   <script src="./scripts/script.js"></script>
 </body>    
 </html>
