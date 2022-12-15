@@ -1,15 +1,15 @@
 const showInputError = (formSelector, inputSelector, errorMessage, config) => {
+  const errorElement = formSelector.querySelector(`.${inputSelector.id}-error`);
   inputSelector.classList.add(config.inputErrorClass);
   errorElement.textContent = errorMessage;
-  errorElement.classList.add(config.errorClass);
-  const errorElement = formSelector.querySelector(`.${inputSelector.id}-error`);
+  errorElement.classList.add(config.errorClass);  
 }
 
 const hideInputError = (formSelector, inputSelector, config) => {
+  const errorElement = formSelector.querySelector(`.${inputSelector.id}-error`);
   inputSelector.classList.remove(config.inputErrorClass);
   errorElement.classList.remove(config.errorClass);
-  errorElement.textContent = '';
-  const errorElement = formSelector.querySelector(`.${inputSelector.id}-error`);
+  errorElement.textContent = '';  
 }
 
 const checkInputValidity = (formSelector, inputSelector, config) => {
@@ -60,7 +60,7 @@ const config = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__submit-btn',
-  inactiveButtonClass: 'popup__button_disabled',
+  inactiveButtonClass: 'popup__submit-btn_inactive',
   inputErrorClass: 'popup__input_type_error',
   errorClass: 'popup__input-error_active'   
 };
