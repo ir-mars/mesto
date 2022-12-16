@@ -29,10 +29,8 @@ const hasInvalidInput = (inputList) => {
 const toggleSubmitButtonState = (inputList, buttonElement, config) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add(config.inactiveButtonClass);
-    buttonElement.disabled = true;                             //почему не работает
   } else {
     buttonElement.classList.remove(config.inactiveButtonClass);
-    buttonElement.disabled = false;                            //почему не работает
   }
 };
 
@@ -44,8 +42,13 @@ const setEventListeners = (formSelector, config) => {
       inputSelector.addEventListener('input', () => {
         checkInputValidity(formSelector, inputSelector, config);
         toggleSubmitButtonState(inputList, buttonElement, config);
-      })
-    })
+      });
+    });
+    formSelector.addEventListener('reset', () => {                  //дизейблим сабмит при повторном открытии (попап добавление карточки)
+      setTimeout(() => {
+        toggleSubmitButtonState(inputList, buttonElement, config);
+      }, 0);
+    });
 };
 
 const enableValidation = (config) => {

@@ -116,20 +116,21 @@ popupAddCardCloseButton.addEventListener('click', function() {
 });
 
 const handleSubmitAddCard = (event) => {
-    event.preventDefault();
     renderCard({
         name: popupInputImgName.value,
         link: popupInputImgLink.value
     });
     closePopup(popupAddCard);
-};
+    event.target.reset();            // дизейблим сабмит при повторном создании карточки(при ее открытии кнопка отправить - неактивна)
+};                                   //  (при ее открытии кнопка отправить - неактивна) 
 
 //попап с картинкой
-const handleImagePopup = (cardTitle, cardImage) => {
+const handleImagePopup = (cardTitle, cardImage) => {           // (event)
   openPopup(popupImage);
-  popupOpenImage.src = event.target.src;
-  popupOpenImage.alt = event.target.closest('.card').querySelector('.card__title').textContent;
-  popupOpenImageSubtitle.textContent = event.target.closest('.card').querySelector('.card__title').textContent;
+  popupOpenImage.src =  cardImage.src;                         // event.target.src; 
+  popupOpenImage.alt =  cardImage.alt;                         // event.target.closest('.card').querySelector('.card__title').textContent;
+  popupOpenImageSubtitle.textContent = cardTitle.textContent;  // event.target.closest('.card').querySelector('.card__title').textContent;
+
 };
 
 popupImageCloseButton.addEventListener('click', function() {
@@ -160,7 +161,9 @@ const generateCard = (card) => {
 
   cardLikeButton.addEventListener('click', handleLikeCard);
   cardDeleteButton.addEventListener('click', handleDeleteCard);
-  cardImage.addEventListener('click', handleImagePopup);
+  cardImage.addEventListener('click', () => {                    // ('click', handleImagePopup)
+    handleImagePopup(cardTitle, cardImage)
+  });
   return newCard;
 };
 
