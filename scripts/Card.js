@@ -10,7 +10,8 @@ export class Card {
     };
 
     _handleDeleteCard = (event) => {
-        event.target.closest('.card').remove();
+        this._newCard.remove();             //event.target.closest('.card').remove();
+        this._newCard = null;
     };
 
     _getCardTemplate = () => {
