@@ -18,10 +18,10 @@ export class Card {
     }
 
     _addEventListeners() {
-        const cardLikeButton = this._newCard.querySelector('.card__like-button');
-        const cardDeleteButton = this._newCard.querySelector('.card__delete-button');
-        cardLikeButton.addEventListener('click', this._handleLikeCard);
-        cardDeleteButton.addEventListener('click', this._handleDeleteCard);
+        this._cardLikeButton = this._newCard.querySelector('.card__like-button');
+        this._cardDeleteButton = this._newCard.querySelector('.card__delete-button');
+        this._cardLikeButton.addEventListener('click', this._handleLikeCard);
+        this._cardDeleteButton.addEventListener('click', this._handleDeleteCard);
         this._cardImage.addEventListener('click', () => this._handleImgClick(this._data.name, this._data.link));
     }
 
@@ -29,10 +29,9 @@ export class Card {
         const cardTemplate = this._getCardTemplate();
         this._newCard = cardTemplate.cloneNode(true);   
         this._cardImage = this._newCard.querySelector('.card__image');
-        const cardTitle = this._newCard.querySelector('.card__title');
-        
-      
-        cardTitle.textContent = this._data.name; 
+        this._cardTitle = this._newCard.querySelector('.card__title');
+              
+        this._cardTitle.textContent = this._data.name; 
         this._cardImage.src = this._data.link; 
         this._cardImage.alt = this._data.name; 
 
@@ -40,9 +39,4 @@ export class Card {
       
         return this._newCard; 
     }
-
-     
-        
-     
-
 }
