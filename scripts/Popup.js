@@ -6,8 +6,6 @@ export class Popup {
 
     _handleEscClose = (evt) => {             //!!!потеря контекста
         if (evt.key === this._Escape) {
-            //const openedPopup = document.querySelector('.popup_is-opened');
-            //closePopup(openedPopup);
             this.close();
         }    
     }

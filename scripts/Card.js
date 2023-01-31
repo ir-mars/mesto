@@ -1,8 +1,8 @@
 export class Card {
-    constructor (data, cardTemplateSelector, handleCardClick/*handleImgClick*/) {      // data: name, link
-        this._cardTemplateSelector = cardTemplateSelector;
+    constructor (data, templateSelector, handleCardClick) {      // data: name, link
+        this._templateSelector = templateSelector;
         this._data = data;
-        this._handleImgClick = handleCardClick/*handleImgClick*/;
+        this._handleCardClick = handleCardClick;
     }
 
     _handleLikeCard = () => {
@@ -15,7 +15,7 @@ export class Card {
     };
 
     _getCardTemplate = () => {
-        return document.querySelector(this._cardTemplateSelector).content.querySelector('.card');
+        return document.querySelector(this._templateSelector).content.querySelector('.card');
     }
 
     _setEventListeners() {
