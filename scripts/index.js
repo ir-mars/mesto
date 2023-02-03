@@ -37,41 +37,11 @@ const popupImageContainer = document.querySelector('.popup__img-container');
 const popupOpenImage = popupImageContainer.querySelector('.popup__big-img');
 const popupOpenImageSubtitle = popupImageContainer.querySelector('.popup__caption');
 
-      
-const containerSelector = document.querySelector('.cards');
 const templateSelector = '#card-template';
 
 ///////////////////////////////////
-const createCard = (data) => {
-  return new Card(data, templateSelector, handleCardClick)
-}
-
-const renderCard = (data) => {               
-  const cardEl = createCard(data);
-  const card = cardEl.createCard();
-  cardSection.addItem(card);
-}
-
-/*const renderCard = (data) => {               //было
-  const cardEl = new Card(data, templateSelector, handleImagePopup);
-  const card = cardEl.generateCard();
-  containerSelector.prepend(card);                     //вставили на страницу
-};*/
-
-/*initialCards.forEach((data) => {
-  renderCard(data);                             //отрисовка карточек
-});*/
-
-//////////////////////////////////////////
-const userInfo = new UserInfo({               //создали экземпляр профайла
-  profileNameSelector: '.profile__title',
-  profileJobSelector: '.profile__subtitle'
-});
-
-
-////////////////////////////////////////////////////////
-const handleCardClick = (src, caption) => {         
-  popupWithBigImg.open(src, caption);   
+const handleCardClick = (name, link) => {         
+  popupWithImage.open(name, link);   
 };
 
 const handleSubmitProfile = (evt) => {      ///&&&&&&&&&&&&&&&&&&
@@ -89,23 +59,40 @@ const handleSubmitAddCard = (evt, values) => {
   addCardPopup.close()//closePopup(popupAddCard);              ???
 };
 
-const popupWithBigImg = new PopupWithImage('.popup_type_image')
-popupWithBigImg.setEventListeners();
+///////////////////////////////////
+const createCard = (data) => {
+  const cardEl = new Card(data, templateSelector, handleCardClick);
+  const card = cardEl.generateCard();
+  return card; 
+}
+
+const renderCard = (data) => {               
+  const card = createCard(data);
+  section.addItem(card);
+}
+
+const section = new Section({items: initialCards, renderer: renderCard}, '.cards')
+section.renderCards();     
+
+//////////////////////////////////////////////////////
+const userInfo = new UserInfo({               //создали экземпляр профайла
+  profileNameSelector: '.profile__title',
+  profileJobSelector: '.profile__subtitle'
+});
+
+
+////////////////////////////////////////////////////////
+
+const popupWithImage = new PopupWithImage('.popup_type_image')
+popupWithImage.setEventListeners();
                                             //editProfilePopupSelector   
 const editProfilePopup = new PopupWithForm('.popup_type_edit-profile', handleSubmitProfile)
 editProfilePopup.setEventListeners();
                                        //addCardPopupSelector
 const addCardPopup = new PopupWithForm('.popup_type_add-card', handleSubmitAddCard)
 addCardPopup.setEventListeners();
-//const addCardPopup = new Popup('.popup_type_add-card')
-//addCardPopup.setEventListeners()
 
 ///////////////////////////////////////////////////
-const cardSection = new Section({
-  items: initialCards,
-  renderer: renderCard
- }, containerSelector)
-
 const addCardFormValidator = new FormValidator(validationConfig, popupCardForm)
 const editProfileFormValidator = new FormValidator(validationConfig, popupProfileForm)
 
