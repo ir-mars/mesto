@@ -10,15 +10,15 @@ export class PopupWithForm extends Popup {
     }
 
     _getInputValues() {
-        const values = {};      //создали пустой обьект
+        this._values = {};      //создали пустой обьект
 
         this._inputList.forEach(input => {
-            const name = input.name
-            const value = input.value
+            //const name = input.name
+            //const value = input.value
 
-            values[name] = value 
+            this._values[name] = value 
         });
-        return values;
+        return this._values;
     }
 
     setEventListeners() {
