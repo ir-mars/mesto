@@ -35,28 +35,31 @@ const popupImage = document.querySelector('.popup_type_image');
 const popupImageCloseButton = popupImage.querySelector('.popup__close-btn');
 const popupImageContainer = document.querySelector('.popup__img-container');
 const popupOpenImage = popupImageContainer.querySelector('.popup__big-img');
-const popupOpenImageSubtitle = popupImageContainer.querySelector('.popup__caption');
+//const popupOpenImageSubtitle = popupImageContainer.querySelector('.popup__caption');
 
 const templateSelector = '#card-template';
 
 ///////////////////////////////////
-const handleCardClick = (name, link) => {         
+const handleCardClick = (name, link) => {           //+     
   popupWithImage.open(name, link);   
 };
 
-const handleSubmitProfile = (evt) => {      ///&&&&&&&&&&&&&&&&&&
+const handleSubmitProfile = (evt, values) => {      //+
   evt.preventDefault();
-  profileNameSelector.textContent = popupInputName.value; 
-  profileJobSelector.textContent = popupInputDescription.value;
+  userInfo.setUserInfo({
+    name: values.name,
+    description: values.description
+  });
   editProfilePopup.close();
 };
 
-const handleSubmitAddCard = (evt, values) => {
-  renderCard({
-      name: popupInputImgName.value,        //      ???
-      link: popupInputImgLink.value         //      ??? 
+const handleSubmitAddCard = (evt, values) => {       //?
+  
+  createCard({
+      name: values.name,      //popupInputImgName.value,              
+      link: values.link       //popupInputImgLink.value               
   });
-  addCardPopup.close()//closePopup(popupAddCard);              ???
+  addCardPopup.close()              
 };
 
 ///////////////////////////////////
@@ -70,50 +73,33 @@ const renderCard = (data) => {
   section.addItem(card);
 }
 
-/*const createCard = (data) => {
-  const cardEl = new Card(data, templateSelector, handleCardClick);
-  const card = cardEl.generateCard();
-  return card; 
-}*/
-
-/*const renderCard = (data) => {               
-  const card = createCard(data);  
-  section.addItem(card);
-}*/    
-
 //////////////////////////////////////////////////////
-const userInfo = new UserInfo({               //создали экземпляр профайла
-  profileNameSelector: '.profile__title',
-  profileJobSelector: '.profile__subtitle'
+const userInfo = new UserInfo({               //??
+  name: '.profile__title',
+  description: '.profile__subtitle'
 });
 
-///////////////////////////////////////////////////////
-//попап редактирования профиля
-popupProfileEditButton.addEventListener('click', () => {
+///////////////////////////
+popupProfileEditButton.addEventListener('click', () => {         //+
   editProfilePopup.open();
-  //popupInputDescription.value = profileSubtitleElement.textContent;
+  userInfo.getUserInfo();
 });
 
-//попап добавления карточки
-popupAddCardButton.addEventListener('click', () => {
-  addCardPopup.open()
-  //addCardFormValidator.resetValidation();                  
-  //openPopup(popupAddCard);   
-  //popupInputImgName.value = '';
-  //popupInputImgLink.value = '';  
+popupAddCardButton.addEventListener('click', () => {             //+
+  addCardPopup.open();  
 });
 
 ////////////////////////////////////////////////////////
 const section = new Section({items: initialCards, renderer: renderCard}, '.cards')
 section.renderCards();
 
-const popupWithImage = new PopupWithImage('.popup_type_image')
+const popupWithImage = new PopupWithImage('.popup_type_image') //+
 popupWithImage.setEventListeners();
                                                
-const editProfilePopup = new PopupWithForm('.popup_type_edit-profile', handleSubmitProfile)
+const editProfilePopup = new PopupWithForm('.popup_type_edit-profile', handleSubmitProfile)  //+
 editProfilePopup.setEventListeners();
                                        
-const addCardPopup = new PopupWithForm('.popup_type_add-card', handleSubmitAddCard)
+const addCardPopup = new PopupWithForm('.popup_type_add-card', handleSubmitAddCard)    //+
 addCardPopup.setEventListeners();
 
 ///////////////////////////////////////////////////

@@ -6,19 +6,16 @@ export class PopupWithForm extends Popup {
 
         this._handleSubmit = handleSubmit;
         this._form = this._popup.querySelector('.popup__form');
-        this._inputList = this._form.querySelector('.popup__input')
+        this._inputs = [...this._form.querySelectorAll('.popup__input')];
     }
 
     _getInputValues() {
-        this._values = {};      //создали пустой обьект
+        const values = {};      //создали пустой обьект
 
-        this._inputList.forEach(input => {
-            //const name = input.name
-            //const value = input.value
-
-            this._values[name] = value 
+        this._inputs.forEach(input => {
+            values[input.name] = input.value 
         });
-        return this._values;
+        return values;
     }
 
     setEventListeners() {
@@ -31,14 +28,5 @@ export class PopupWithForm extends Popup {
     close() {
         super.close();
         this._form.reset();
-    }
-
-    setFormValues() {
-        this._inputList.forEach(input => {
-            const name = input.name;
-            if(values[name]) {
-                input.value = values[name]
-            }
-        });
     }
 }
