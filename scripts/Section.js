@@ -5,13 +5,13 @@ export class Section {
         this._container = document.querySelector(selector);  //dom-элемент
     }
     
-    renderCards() {
+    renderCards() {                                  //отрисовка всех элементов на странице
         this._items.forEach((item) => {
             this._renderer(item);
         });
     }
 
-    addItem(card) {                      
+    addItem(card) {                                 //принимает dom-элемент и добавляет его
         this._container.prepend(card);
     }
 }
