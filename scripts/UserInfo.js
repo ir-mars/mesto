@@ -5,19 +5,19 @@ export class UserInfo {
     }
 
     getUserInfo() {
-        return {
+        /*return {
             name: this._name.textContent,
             description: this._description.textContent
-        }
-        /*const userInfo = {};
-        userInfo.name = this._userName.textContent,
-        userInfo.description = this._userDescription.textContent;
+        }*/
+        const user = {};
+        user.name = this._name.textContent,
+        user.description = this._description.textContent;
 
-        return userInfo;*/
+        return user;
     }
 
-    setUserInfo() {
-        this._name.textContent = name,
-        this._description.textContent = description;
+    setUserInfo(value) {
+        this._name.textContent = value.name,                //+
+        this._description.textContent = value.description;
     }
 }
