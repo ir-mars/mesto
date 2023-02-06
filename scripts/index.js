@@ -61,7 +61,8 @@ const handleSubmitAddCard = (values) => {       //
 
 const userInfo = new UserInfo({
   name: '.profile__title',
-  description: '.profile__subtitle'});
+  description: '.profile__subtitle'
+});
 
 const handleSubmitProfile = (values) => {      //+
   userInfo.setUserInfo(values);
