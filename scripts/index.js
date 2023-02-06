@@ -6,8 +6,6 @@ import { Popup } from './Popup.js';
 import { PopupWithImage } from './PopupWithImage.js';
 import { PopupWithForm } from './PopupWithForm.js';
 import { UserInfo } from './UserInfo.js'
-
-
    
 //profile
 const popupEditProfile = document.querySelector('.popup_type_edit-profile');
@@ -53,7 +51,7 @@ const handleCardClick = (name, link) => {
   popupWithImage.open(name, link);   
 };
 
-const handleSubmitAddCard = (values) => {       //
+const handleSubmitAddCard = (values) => {       
   renderCard(values);
   //console.log('values =>', values)  
   addCardPopup.close();              
@@ -64,7 +62,7 @@ const userInfo = new UserInfo({
   description: '.profile__subtitle'
 });
 
-const handleSubmitProfile = (values) => {      //+
+const handleSubmitProfile = (values) => {      
   userInfo.setUserInfo(values);
   editProfilePopup.close();
 };
@@ -72,7 +70,9 @@ const handleSubmitProfile = (values) => {      //+
 popupProfileEditButton.addEventListener('click', () => {         
   editProfileFormValidator.resetValidation();                //сброс ошибок
   editProfilePopup.open();
-  userInfo.getUserInfo();
+  const user = userInfo.getUserInfo();
+  popupInputName.value = user.name,
+  popupInputDescription.value = user.description
 });
 
 popupAddCardButton.addEventListener('click', () => {             
@@ -92,7 +92,6 @@ addCardPopup.setEventListeners();
 const cardSection = new Section({items: initialCards, renderer: renderCard}, '.cards')
 cardSection.renderCards();                 //отрисовка карточек
 
-///////////////////////////////////////////////////
 const addCardFormValidator = new FormValidator(validationConfig, popupCardForm)
 const editProfileFormValidator = new FormValidator(validationConfig, popupProfileForm)
 
