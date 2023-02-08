@@ -1,11 +1,12 @@
-import { initialCards, validationConfig } from './constants.js'
-import { FormValidator } from './FormValidator.js';
-import { Card } from './Card.js';
-import { Section } from './Section.js';
-import { Popup } from './Popup.js';
-import { PopupWithImage } from './PopupWithImage.js';
-import { PopupWithForm } from './PopupWithForm.js';
-import { UserInfo } from './UserInfo.js'
+import './index.css';
+
+import { initialCards, validationConfig } from '../utils/constants.js'
+import { FormValidator } from '../components/FormValidator.js';
+import { Card } from '../components/Card.js';
+import { Section } from '../components/Section.js';
+import { PopupWithImage } from '../components/PopupWithImage.js';
+import { PopupWithForm } from '../components/PopupWithForm.js';
+import { UserInfo } from '../components/UserInfo.js'
    
 //profile
 const popupEditProfile = document.querySelector('.popup_type_edit-profile');
@@ -22,18 +23,7 @@ const popupProfileForm = popupEditProfile.querySelector('.popup__form');
 //add card
 const popupAddCard = document.querySelector('.popup_type_add-card');
 const popupAddCardButton = document.querySelector('.profile__add-button');
-const popupAddCardCloseButton = popupAddCard.querySelector('.popup__close-btn');
-const popupInputImgName = popupAddCard.querySelector('.popup__input_type_img-name');
-const popupInputImgLink = popupAddCard.querySelector('.popup__input_type_img-link');
-const formAddCard = document.querySelector('.popup__form_type_add-card');
 const popupCardForm = popupAddCard.querySelector('.popup__form');   
-
-//image
-const popupImage = document.querySelector('.popup_type_image');
-const popupImageCloseButton = popupImage.querySelector('.popup__close-btn');
-const popupImageContainer = document.querySelector('.popup__img-container');
-const popupOpenImage = popupImageContainer.querySelector('.popup__big-img');
-const popupOpenImageSubtitle = popupImageContainer.querySelector('.popup__caption');
 
 const templateSelector = '#card-template';
 

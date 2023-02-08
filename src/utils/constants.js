@@ -7,30 +7,38 @@ export const validationConfig = {
     errorClass: 'popup__input-error_active'   
 };
 
+const arkhiz = new URL('./../images/arkhiz.jpg', import.meta.url);
+const dombay = new URL('./../images/dombay.jpg', import.meta.url);
+const elbrus = new URL('./../images/elbrus.jpg', import.meta.url);
+const kirovsk = new URL('./../images/kirovsk.jpg', import.meta.url);
+const polyana = new URL('./../images/polyana.jpg', import.meta.url);
+const sheregesh = new URL('./../images/sheregesh.jpg', import.meta.url);
+ 
+
 export const initialCards = [
     {
       name: 'Архыз',
-      link: './images/arkhiz.jpg'
+      link: arkhiz
     },
     {
       name: 'Гора Домбай',
-      link: './images/dombay.jpg'
+      link: dombay
     },
     {
       name: 'Гора Эльбрус',
-      link: './images/elbrus.jpg'
+      link: elbrus
     },
     {
       name: 'Кировск',
-      link: './images/kirovsk.jpg'
+      link: kirovsk
     },
     {
       name: 'Красная Поляна',
-      link: './images/polyana.jpg'
+      link: polyana
     },
     {
       name: 'Шерегеш',
-      link: './images/sheregesh.jpg'
+      link: sheregesh
     }
 ];
 

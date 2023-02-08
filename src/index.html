@@ -2,18 +2,17 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="./pages/index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
   <title>Mesto Russia</title>
 </head>
 <body class="page">
   <header class="header">
-    <img class="header__logo" src="./images/header-logo.svg" alt="надпись Место">
+    <img class="header__logo" src="<%=require('./images/header-logo.svg')%>" alt="надпись Место">
   </header>
   <main class="content">
     <section class="profile" aria-label="Раздел Профайл">
       <div class="profile__container">
-        <img class="profile__image" src="./images/Avatar-image.png" alt="фото профиля">    
+        <img class="profile__image" src="<%=require('./images/Avatar-image.png')%>" alt="фото профиля">    
         <div class="profile__info">
           <div class="profile__box">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -108,7 +107,6 @@
         <button class="card__like-button" type="button"></button>
       </div>
     </article>
-  </template>  
-  <script src="./scripts/index.js" type="module"></script>
+  </template>
 </body>    
 </html>
