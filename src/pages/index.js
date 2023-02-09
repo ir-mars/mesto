@@ -7,25 +7,16 @@ import { Section } from '../components/Section.js';
 import { PopupWithImage } from '../components/PopupWithImage.js';
 import { PopupWithForm } from '../components/PopupWithForm.js';
 import { UserInfo } from '../components/UserInfo.js'
-   
-//profile
-const popupEditProfile = document.querySelector('.popup_type_edit-profile');
-const profileElement = document.querySelector('.profile');
-const profileNameSelector = profileElement.querySelector('.profile__title');
-const profileJobSelector = profileElement.querySelector('.profile__subtitle');
-const popupProfileEditButton = document.querySelector('.profile__edit-button');
-const popupProfileCloseButton = popupEditProfile.querySelector('.popup__close-btn');
-const popupInputName = popupEditProfile.querySelector('.popup__input_type_name');
-const popupInputDescription = popupEditProfile.querySelector('.popup__input_type_description');
-const formEditProfile = document.querySelector('.popup__form_type_edit-profile');
-const popupProfileForm = popupEditProfile.querySelector('.popup__form');      
 
-//add card
-const popupAddCard = document.querySelector('.popup_type_add-card');
-const popupAddCardButton = document.querySelector('.profile__add-button');
-const popupCardForm = popupAddCard.querySelector('.popup__form');   
-
-const templateSelector = '#card-template';
+import {
+  popupProfileEditButton,
+  popupInputName,
+  popupInputDescription,
+  popupProfileForm,
+  popupAddCardButton,
+  popupCardForm,
+  templateSelector
+} from '../utils/constants.js';
 
 const createCard = (data) => {
   return new Card(data, templateSelector, handleCardClick); 
@@ -58,11 +49,11 @@ const handleSubmitProfile = (values) => {
 };
 
 popupProfileEditButton.addEventListener('click', () => {         
-  editProfileFormValidator.resetValidation();                //сброс ошибок
-  editProfilePopup.open();
   const user = userInfo.getUserInfo();
   popupInputName.value = user.name,
-  popupInputDescription.value = user.description
+  popupInputDescription.value = user.description;
+  editProfileFormValidator.resetValidation();                //сброс ошибок
+  editProfilePopup.open();
 });
 
 popupAddCardButton.addEventListener('click', () => {             

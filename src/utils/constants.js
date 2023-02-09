@@ -7,6 +7,16 @@ export const validationConfig = {
     errorClass: 'popup__input-error_active'   
 };
 
+export const popupEditProfile = document.querySelector('.popup_type_edit-profile');
+export const popupProfileEditButton = document.querySelector('.profile__edit-button');
+export const popupInputName = popupEditProfile.querySelector('.popup__input_type_name');
+export const popupInputDescription = popupEditProfile.querySelector('.popup__input_type_description');
+export const popupProfileForm = popupEditProfile.querySelector('.popup__form');
+export const popupAddCard = document.querySelector('.popup_type_add-card');
+export const popupAddCardButton = document.querySelector('.profile__add-button');
+export const popupCardForm = popupAddCard.querySelector('.popup__form');
+export const templateSelector = '#card-template';
+
 const arkhiz = new URL('./../images/arkhiz.jpg', import.meta.url);
 const dombay = new URL('./../images/dombay.jpg', import.meta.url);
 const elbrus = new URL('./../images/elbrus.jpg', import.meta.url);
