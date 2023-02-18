@@ -7,49 +7,31 @@ export const validationConfig = {
     errorClass: 'popup__input-error_active'   
 };
 
+//редактирование профиля
 export const popupEditProfile = document.querySelector('.popup_type_edit-profile');
-export const popupProfileEditButton = document.querySelector('.profile__edit-button');
+export const popupProfileForm = popupEditProfile.querySelector('.popup__form');
+export const popupProfileEditButton = document.querySelector('.profile__edit-button'); //кнопка
 export const popupInputName = popupEditProfile.querySelector('.popup__input_type_name');
 export const popupInputDescription = popupEditProfile.querySelector('.popup__input_type_description');
-export const popupProfileForm = popupEditProfile.querySelector('.popup__form');
+export const submitProfileButton = popupEditProfile.querySelector('.popup__submit-btn')
+
+//добавление карточки
 export const popupAddCard = document.querySelector('.popup_type_add-card');
-export const popupAddCardButton = document.querySelector('.profile__add-button');
+export const popupAddCardButton = document.querySelector('.profile__add-button'); //кнопка плюс
 export const popupCardForm = popupAddCard.querySelector('.popup__form');
 export const templateSelector = '#card-template';
 
-const arkhiz = new URL('./../images/arkhiz.jpg', import.meta.url);
-const dombay = new URL('./../images/dombay.jpg', import.meta.url);
-const elbrus = new URL('./../images/elbrus.jpg', import.meta.url);
-const kirovsk = new URL('./../images/kirovsk.jpg', import.meta.url);
-const polyana = new URL('./../images/polyana.jpg', import.meta.url);
-const sheregesh = new URL('./../images/sheregesh.jpg', import.meta.url);
- 
+//удаление карточки
+//export const popupConfirmation = '.popup_type_confirm';
+//export const submitButton
 
-export const initialCards = [
-    {
-      name: 'Архыз',
-      link: arkhiz
-    },
-    {
-      name: 'Гора Домбай',
-      link: dombay
-    },
-    {
-      name: 'Гора Эльбрус',
-      link: elbrus
-    },
-    {
-      name: 'Кировск',
-      link: kirovsk
-    },
-    {
-      name: 'Красная Поляна',
-      link: polyana
-    },
-    {
-      name: 'Шерегеш',
-      link: sheregesh
-    }
-];
+//изменение аватара
+export const avatarEditButton = document.querySelector('.profile__avatar-button'); //кнопка-карандаш
+export const avatarProfile = '.profile__image';
+export const popupAvatarForm = document.querySelector('.popup__form');
+
+
+
+
 
   

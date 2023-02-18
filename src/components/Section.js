@@ -1,12 +1,11 @@
 export class Section {
-    constructor({items, renderer}, selector) {    
-        this._items = items;                          //массив данных initialCards
+    constructor({renderer}, selector) {    
         this._renderer = renderer;                           //ф-я, отрисовка карточки  
         this._container = document.querySelector(selector);  //dom-элемент
     }
     
-    renderCards() {                                  //отрисовка всех элементов на странице
-        this._items.forEach((item) => {
+    renderCards(items) {                                  //отрисовка всех элементов на странице
+        items.forEach((item) => {
             this._renderer(item);
         });
     }
