@@ -19,7 +19,6 @@ import {
   popupAvatarForm,
   avatarEditButton,
   templateSelector,
-  submitProfileButton,
 } from '../utils/constants.js';
 
 import { validationConfig } from '../utils/constants.js'
@@ -61,8 +60,7 @@ const handleDeleteClick = () => {
 
 /*---------------------------------------------------------------*/
 //сабмит добавления карточки
-const handleSubmitAddCard = (evt, values) => {
-  evt.preventDefault();
+const handleSubmitAddCard = (values) => {
   addCardPopup.setText('Сохранение..')
   api.addCard(values.name, values.link)
     .then((res) => {
@@ -77,12 +75,11 @@ const handleSubmitAddCard = (evt, values) => {
 };
 
 //сабмит профиля
-const handleSubmitProfile = (evt, name, about) => {
-  evt.preventDefault();
-  editProfilePopup.setText('Сохранение..')   
+const handleSubmitProfile = (values) => {
+  editProfilePopup.setText('Сохранение..');
+  const {name, about} = values;   
   api.sendUserInfo(name, about)
     .then((res) => {
-      console.log(userInfo)                          //////
       userInfo.setUserInfo(res.name, res.about)
       editProfilePopup.close();
     })
@@ -92,12 +89,11 @@ const handleSubmitProfile = (evt, name, about) => {
 };
 
 //сабмит аватара
-const handleSubmitAvatar = (evt, avatar) => {
-  evt.preventDefault();
+const handleSubmitAvatar = (value) => {
   editAvatarPopup.setText('Сохранение..')
-  api.setAvatar(avatar)
+  api.setAvatar(value.url)
     .then((res) => {
-      userInfo.setUserInfo(res)
+      userInfo.setAvatar(res.avatar)
       editAvatarPopup.close()
     })
     .catch((err) => {
@@ -108,11 +104,18 @@ const handleSubmitAvatar = (evt, avatar) => {
     })
 }
 
-//сабмит удаления карточки
+//удаления карточки
 /*
-const handleConfirmationSubmit = (newHandleSubmit) => {
-  popupWithConfirmation.open();
-  popupWithConfirmation.handleSubmit(newHandleSubmit)
+const handleDeleteClick = (card) => {
+  popupDeleteCard.open();
+  popupDeleteCard.handleSubmit(() => {
+    api.deleteCard(card.getCardId())
+      .then(() => {
+        card.deleteCard()
+        popupDeleteCard.close()
+      })
+      .catch
+  })
 };*/
 
 /*----------вставка контента----------*/                      
@@ -123,7 +126,7 @@ const createCard = (data) => {
     handleDeleteClick,
     {
       handleLikeClick: (id) => {
-        console.log(card.isMyLike())
+        //console.log(card.isMyLike())
         if (card.isMyLike()) {
           
           api.removeLike(id)
@@ -150,6 +153,15 @@ const createCard = (data) => {
 
 
 /*---------------------------------------------*/
+api.setAvatar(avatar)
+    .then((res) => {
+      userInfo.setUserInfo(res)
+    })    
+
+api.sendUserInfo()
+  .then((name, about) => {
+    userInfo.setUserInfo(name, about)
+  })
 
 api.getUserInfo()
   .then((name, about) => {
@@ -218,8 +230,7 @@ popupAddCardButton.addEventListener('click', () => {
 avatarEditButton.addEventListener('click', () => {
   avatarFormValidator.resetValidation();
   avatarEditPopup.open();
-})       
-
+})    
 
 
 

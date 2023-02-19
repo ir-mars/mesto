@@ -13,7 +13,6 @@ export const popupProfileForm = popupEditProfile.querySelector('.popup__form');
 export const popupProfileEditButton = document.querySelector('.profile__edit-button'); //кнопка
 export const popupInputName = popupEditProfile.querySelector('.popup__input_type_name');
 export const popupInputDescription = popupEditProfile.querySelector('.popup__input_type_description');
-export const submitProfileButton = popupEditProfile.querySelector('.popup__submit-btn')
 
 //добавление карточки
 export const popupAddCard = document.querySelector('.popup_type_add-card');

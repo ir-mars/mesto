@@ -90,7 +90,7 @@ export class Api {
         })
         .then(res => this._getResponse(res))
     }
-
+/*
     editProfile(name, about) {
         return fetch(`${this._baseUrl} + /users/me`, {
             method: 'PATCH',
@@ -101,5 +101,5 @@ export class Api {
             })
         })
         .then(res => this._getResponse(res))
-    }
+    }*/
 }

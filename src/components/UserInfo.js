@@ -27,6 +27,6 @@ export class UserInfo {
     }
 
     setAvatar() {
-        return this._profileAvatar.src;
+        this._profileAvatar.src = link;
     }
 }
