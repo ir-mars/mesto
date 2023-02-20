@@ -32,7 +32,7 @@ export class PopupWithConfirmation extends Popup {
         if(isLoading) {
             this._submitButton.textContent = text;
         } else {
-            this._submitButton.textContent = this._submitButton.textContent;
+            this._submitButton.textContent = 'Да';
         }
     }    
 }

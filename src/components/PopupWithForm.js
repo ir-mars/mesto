@@ -30,7 +30,8 @@ export class PopupWithForm extends Popup {
               .catch((err) => {
                 console.log(err);
               })
-              .finally(() => this._renderLoading(false))            
+              .finally(() => this._renderLoading(false))
+
         });    
     }
 
@@ -50,7 +51,7 @@ export class PopupWithForm extends Popup {
         if(isLoading) {
             this._submitButton.textContent = text;
         } else {
-            this._submitButton.textContent = this._submitButtonText;
+            this._submitButton.textContent = 'Сохранить';
         }
     }
 }
