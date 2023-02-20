@@ -21,13 +21,13 @@ export const popupCardForm = popupAddCard.querySelector('.popup__form');
 export const templateSelector = '#card-template';
 
 //удаление карточки
-//export const popupConfirmation = '.popup_type_confirm';
-//export const submitButton
+//export const cardDeleteSelector = '.popup_type_confirm';
+
 
 //изменение аватара
 export const avatarEditButton = document.querySelector('.profile__avatar-button'); //кнопка-карандаш
 export const avatarProfile = '.profile__image';
-export const popupAvatarForm = document.querySelector('.popup__form');
+export const popupAvatarForm = document.querySelector('.popup__form_type_avatar');
 
 
 

@@ -8,6 +8,10 @@ export class PopupWithConfirmation extends Popup {
         this._submitButton = this._form.querySelector('.popup__submit-btn');
     }
 
+    handleSubmit(func) {
+        this._handleSubmit = func;
+    }
+
     setEventListeners() {
         super.setEventListeners();
         this._form.addEventListener('submit', (evt) => {
@@ -30,9 +34,5 @@ export class PopupWithConfirmation extends Popup {
         } else {
             this._submitButton.textContent = this._submitButton.textContent;
         }
-    }
-
-    _handleSubmit(newHandleSubmit) {
-        this._handleSubmit = newHandleSubmit;
-    }
+    }    
 }

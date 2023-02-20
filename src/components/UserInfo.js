@@ -26,7 +26,7 @@ export class UserInfo {
         return this._userId
     }
 
-    setAvatar() {
-        this._profileAvatar.src = link;
+    setAvatar({avatar}) {
+        this._profileAvatar.src = avatar;
     }
 }

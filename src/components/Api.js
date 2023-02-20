@@ -29,7 +29,7 @@ export class Api {
     }
 
     //изменение профиля
-    sendUserInfo(name, about) {
+    sendUserInfo({name, about}) {
         return fetch(`${this._baseUrl}/users/me`, {
             method: 'PATCH',
             headers: this._headers,
@@ -42,7 +42,7 @@ export class Api {
     }
 
     //добавление карточки
-    addCard(name, link) {
+    addCard({name, link}) {
         return fetch(`${this._baseUrl}/cards/`, {
             method: 'POST',
             headers: this._headers,
@@ -55,8 +55,8 @@ export class Api {
     }
 
     //удаление карточки
-    deleteCard(_id) {
-        return fetch(`${this._baseUrl}/cards/` + _id, {
+    deleteCard(id) {
+        return fetch(`${this._baseUrl}/cards/` + id, {
             method: 'DELETE',
             headers: this._headers
         })
@@ -64,23 +64,23 @@ export class Api {
     }
 
     //добавление лайка
-    setLike(_id) {
-        return fetch(`${this._baseUrl}/cards/likes/` + _id, {
+    setLike(id) {
+        return fetch(`${this._baseUrl}/cards/likes/` + id, {
             method: 'PUT',
             headers: this._headers
         })
         .then(res => this._getResponse(res))
     }
 
-    removeLike(_id) {
-        return fetch(`${this._baseUrl}/cards/likes/` + _id, {
+    removeLike(id) {
+        return fetch(`${this._baseUrl}/cards/likes/` + id, {
             method: 'DELETE',
             headers: this._headers
         })
         .then(res => this._getResponse(res))
     }
 
-    setAvatar(avatar) {
+    setAvatar({avatar}) {
         return fetch(`${this._baseUrl}/users/me/avatar`, {
             method: 'PATCH',
             headers: this._headers,
@@ -90,16 +90,4 @@ export class Api {
         })
         .then(res => this._getResponse(res))
     }
-/*
-    editProfile(name, about) {
-        return fetch(`${this._baseUrl} + /users/me`, {
-            method: 'PATCH',
-            hesders: this._headers,
-            body: JSON.stringify({
-                name,
-                about
-            })
-        })
-        .then(res => this._getResponse(res))
-    }*/
 }

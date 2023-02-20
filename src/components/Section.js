@@ -5,7 +5,7 @@ export class Section {
     }
     
     renderCards(items) {                                  //отрисовка всех элементов на странице
-        items.forEach((item) => {
+        items.reverse().forEach((item) => {
             this._renderer(item);
         });
     }
