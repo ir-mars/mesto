@@ -146,6 +146,7 @@ const avatarEditPopup = new PopupWithForm('.popup_type_avatar', {
       .catch((err) => {
         console.log(err)      
       })
+      
   }
 }) 
 avatarEditPopup.setEventListeners();
