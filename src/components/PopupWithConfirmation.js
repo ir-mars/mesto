@@ -12,27 +12,19 @@ export class PopupWithConfirmation extends Popup {
         this._handleSubmit = func;
     }
 
-    setEventListeners() {
-        super.setEventListeners();
-        this._form.addEventListener('submit', (evt) => {
-            evt.preventDefault();
-            this._renderLoading(true);
-            this._handleSubmit()
-            .then(() => this.close())
-            .catch((err) => {
-                console.log(err);
-            })
-            .finally(() => {
-                this._renderLoading(false);
-            })
-        });    
-    }
-
-    _renderLoading(isLoading, text = 'Удаление...') {
+    loading(isLoading) {
         if(isLoading) {
-            this._submitButton.textContent = text;
+            this._submitButton.textContent = 'Удаление...';            
         } else {
-            this._submitButton.textContent = 'Да';
+            this._submitButton.textContent = 'Да';            
         }
     }    
+    
+    setEventListeners() {        
+        super.setEventListeners();
+        this._form.addEventListener('submit', (evt) => {
+            evt.preventDefault();        
+            this._handleSubmit()        
+        });         
+    }  
 }

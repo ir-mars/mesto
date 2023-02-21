@@ -55,7 +55,7 @@ export class Card {
         return this._newCard; 
     }
     
-    removeCard = () => {
+    removeCard() {
         this._newCard.remove();             
         this._newCard = null;
     };

@@ -19,6 +19,7 @@ import {
   popupAvatarForm,
   avatarEditButton,
   templateSelector,
+  popupEditProfile,
 } from '../utils/constants.js';
 
 import { validationConfig } from '../utils/constants.js'
@@ -62,13 +63,18 @@ const createCard = (data) => {
       handleDeleteClick: (id) => {
         popupDeleteCard.open();
         popupDeleteCard.handleSubmit(() => {
+          popupDeleteCard.loading(true);
           return api.deleteCard(id)
             .then(() => {
               //console.log
               card.removeCard();
+              popupDeleteCard.close();
             })
             .catch((err) => {
               console.log(err);
+            })
+            .finally(() => {
+              popupDeleteCard.loading(false);
             })
         })
       },
@@ -112,6 +118,7 @@ popupWithImage.setEventListeners();
 
 const editProfilePopup = new PopupWithForm('.popup_type_edit-profile', {   
   handleSubmit: (userData) => {
+    editProfilePopup.loading(true);
     api.sendUserInfo(userData)
       .then((res) => {
         userInfo.setUserInfo(res)
@@ -120,31 +127,43 @@ const editProfilePopup = new PopupWithForm('.popup_type_edit-profile', {
       .catch((err) => {
         console.log(err);
       })
+      .finally(() => {
+        editProfilePopup.loading(false);        
+      })
   }
 })
 editProfilePopup.setEventListeners();
 
 const addCardPopup = new PopupWithForm('.popup_type_add-card', {                 
-  handleSubmit: (cardData) =>{
+  handleSubmit: (cardData) => {
+    addCardPopup.loading(true);
     return api.addCard(cardData)
       .then((newCardData) => {
-        cardSection.renderCards([newCardData]) 
-      })
+        cardSection.renderCards([newCardData])
+        addCardPopup.close(); 
+      })      
       .catch((err) => {
         console.log(err)
+      })
+      .finally(() => {
+        addCardPopup.loading(false);
       })
   }})    
 addCardPopup.setEventListeners();
 
 const avatarEditPopup = new PopupWithForm('.popup_type_avatar', {              
   handleSubmit: (avatarData) => {
-    return api.setAvatar(avatarData)
+    avatarEditPopup.loading(true);
+    api.setAvatar(avatarData)
       .then((res) => {
         userInfo.setAvatar(res)
         avatarEditPopup.close()
       })
       .catch((err) => {
         console.log(err)      
+      })
+      .finally(() => {
+        avatarEditPopup.loading(false);
       })
       
   }
